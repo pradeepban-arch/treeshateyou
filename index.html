@@ -49,7 +49,7 @@
     <div id="loading-text">LOADING...</div>
   </div>
 
-  <script src="Build/loader.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/pradeepban-arch/treeshateyou/Build/loader.js"></script>
   <script>
     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
       const meta = document.createElement('meta');
@@ -127,8 +127,8 @@
 
     (async () => {
       try {
-        const dataParts = getParts("Build/data.br", 5);
-        const wasmParts = getParts("Build/wasm.br", 4);
+        const dataParts = getParts("https://cdn.statically.io/gh/pradeepban-arch/treeshateyou@main/Build/data.br", 5);
+        const wasmParts = getParts("https://rawcdn.githack.com/pradeepban-arch/treeshateyou/dd59be1268a0b3141862719ce7d1f1372a1a51d4/Build/wasm.br", 4);
         const allParts = [...dataParts, ...wasmParts, "Build/framework.js"];
         const sizes = await Promise.all(allParts.map(getSize));
         totalBytes = sizes.reduce((a, b) => a + b, 0);
@@ -136,7 +136,7 @@
         const [dataUrl, wasmUrl, frameworkUrl] = await Promise.all([
           mergeParts(dataParts),
           mergeParts(wasmParts),
-          mergeParts(["Build/framework.js"], 'application/javascript')
+          mergeParts(["https://cdn.statically.io/gh/pradeepban-arch/treeshateyou@main/Build/framework.js"], 'application/javascript')
         ]);
 
         const canvas = document.querySelector("#unity-canvas");
