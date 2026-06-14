@@ -128,7 +128,7 @@
     (async () => {
       try {
         const dataParts = getParts("https://raw.githack.com/pradeepban-arch/treeshateyou/main/Build/data.br", 5);
-        const wasmParts = getParts("https://rawcdn.githack.com/pradeepban-arch/treeshateyou/dd59be1268a0b3141862719ce7d1f1372a1a51d4/Build/wasm.br", 4);
+        const wasmParts = getParts("https://raw.githack.com/pradeepban-arch/treeshateyou/main/Build/wasm.br", 4);
         const allParts = [...dataParts, ...wasmParts, "Build/framework.js"];
         const sizes = await Promise.all(allParts.map(getSize));
         totalBytes = sizes.reduce((a, b) => a + b, 0);
